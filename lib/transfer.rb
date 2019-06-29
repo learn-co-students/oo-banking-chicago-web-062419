@@ -26,7 +26,7 @@ class Transfer
       "Transaction rejected. Please check your account balance."
     elsif @status == "complete"
       "Transaction already completed."
-    else
+    elsif self.valid?
       receiver.deposit(amount)
       sender.withdraw(amount)
       @status = "complete"
